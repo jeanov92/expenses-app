@@ -1,13 +1,17 @@
-import './NewExpense.css';
+import "./NewExpense.css";
 
-import ExpenseForm from './ExpenseForm';
+import ExpenseForm from "./ExpenseForm";
 
-function NewExpense () { 
-    return(
-        <div className="new-expense">
-            <ExpenseForm></ExpenseForm>
-        </div>
-        );
+function NewExpense(props) {
+  const newExpenseHandler = (expense) => {
+    props.onAddExpense(expense);
+  };
+
+  return (
+    <div className="new-expense">
+      <ExpenseForm onSaveExpense={newExpenseHandler}></ExpenseForm>
+    </div>
+  );
 }
 
 export default NewExpense;
